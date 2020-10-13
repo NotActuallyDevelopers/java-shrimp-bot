@@ -1,0 +1,13 @@
+me\maxgrzy\economybotdiscord\Utils$1.class
+me\maxgrzy\economybotdiscord\FirebaseDBHandler.class
+me\maxgrzy\economybotdiscord\commands\SetPrefixCommandEventListener.class
+me\maxgrzy\economybotdiscord\commands\ReloadCommandEventListener.class
+me\maxgrzy\economybotdiscord\commands\SupportCommandEventListener.class
+me\maxgrzy\economybotdiscord\eventlisteners\ReadyEventListener.class
+me\maxgrzy\economybotdiscord\Main.class
+me\maxgrzy\economybotdiscord\commands\NoCommandLikeThatListener.class
+me\maxgrzy\economybotdiscord\commands\HelpCommandEventListener.class
+me\maxgrzy\economybotdiscord\commands\StopCommandEventListener.class
+me\maxgrzy\economybotdiscord\commands\AddToYourServerCommandEventListener.class
+me\maxgrzy\economybotdiscord\Utils.class
+me\maxgrzy\economybotdiscord\Utils$2.class
