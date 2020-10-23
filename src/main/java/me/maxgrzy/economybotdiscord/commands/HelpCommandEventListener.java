@@ -32,7 +32,11 @@ public class HelpCommandEventListener extends ListenerAdapter {
                     for (String command : Utils.LISTOFCOMMANDS) {
                         guildCommandsAsText.append("\n - " + Utils.getGuildPrefix(event.getGuild().getId()) + command);
                     }
-                    builder.setDescription("**List of all the guild commands:** " + guildCommandsAsText.toString() + "\n\n**List of all the PM commands:** " + DMCommandsAsText.toString());
+                    StringBuilder economyCommandsAsText = new StringBuilder();
+                    for (String command : Utils.LISTOFCOMMANDSECONOMY) {
+                        economyCommandsAsText.append("\n - " + Utils.getGuildPrefix(event.getGuild().getId()) + command);
+                    }
+                    builder.setDescription("**List of all the guild commands:** " + guildCommandsAsText.toString() + "\n\n**List of all economy commands (guild):**" + economyCommandsAsText + "\n\n**List of all the PM commands:** " + DMCommandsAsText.toString());
                     builder.setColor(new Color(0x00FF00));
                     builder.setFooter("Version: " + Utils.VERSION);
                     try {
@@ -57,6 +61,10 @@ public class HelpCommandEventListener extends ListenerAdapter {
                 StringBuilder guildCommandsAsText = new StringBuilder();
                 for (String command : Utils.LISTOFCOMMANDS) {
                     guildCommandsAsText.append("\n - " + Utils.DEFAULTPREFIX + command);
+                }
+                StringBuilder economyCommandsAsText = new StringBuilder();
+                for (String command : Utils.LISTOFCOMMANDSECONOMY) {
+                    economyCommandsAsText.append("\n - " + Utils.DEFAULTPREFIX + command);
                 }
                 builder.setDescription("**List of all the PM commands:** " + PMCommandsAsText.toString() + "\n\n **List of all the guild commands:** " + guildCommandsAsText.toString());
 

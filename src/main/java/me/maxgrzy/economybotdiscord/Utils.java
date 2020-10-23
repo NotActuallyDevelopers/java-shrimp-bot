@@ -19,6 +19,7 @@ public class Utils {
     public static final String STATUS = "Type " + DMPREFIX + "help in direct messages.";
     public static final String TOKEN = "NzU3MjM4OTQyMzQ4MzQ1NDg1.X2dfuA.avOS_WbfaOZqqbBAMPr4cS6lcuA";
     public static final String[] LISTOFCOMMANDS = {"help", "support", "setPrefix", "addToYourServer"};
+    public static final String[] LISTOFCOMMANDSECONOMY = {"work", "deposit"};
     public static final String[] LISTOFCOMMANDSDM = {"help", "support", "addToYourServer"};
     public static final String[] BOTADMINCOMMANDS = {"reload", "stop"};
     public static final String VERSION = "1.0.9";
@@ -124,13 +125,25 @@ public class Utils {
     }
     public static int addMoneyToBal(String guildID, String userID, int amount) {
         setBalance(guildID, userID, getBalance(guildID, userID) + amount);
-        return userBalances.get(new Entry(guildID, userID));
+        return getBalance(guildID, userID);
     }
     public static int getBalance(String guildID, String userID) {
-        return userBalances.get(new Entry(guildID, userID));
+        int balance = 0;
+        if (userBalances.containsKey(new Entry(guildID, userID))) {
+            balance = userBalances.get(new Entry(guildID, userID));
+        } else {
+            setBalance(guildID, userID, 0);
+        }
+        return balance;
     }
     public static int getBankAccount(String guildID, String userID) {
-        return userBankAccounts.get(new Entry(guildID, userID));
+        int bank = 0;
+        if (userBankAccounts.containsKey(new Entry(guildID, userID))) {
+            bank = userBankAccounts.get(new Entry(guildID, userID));
+        } else {
+            setBankAccount(guildID, userID, 0);
+        }
+        return bank;
     }
     public static int getGuildMinWorkPayout(String guildID) {
         return DEFAULTWORKMINPAYOUT;
@@ -163,8 +176,32 @@ public class Utils {
                     setBalance(guildID, userID, getBalance(guildID, userID) - amount);
                     return true;
                 }
-
             }
         }
+    }
+
+    public static int getCrimeMaxLoss(String guildID) {
+        return 50;
+    }
+
+    public static int getGuildMinCrimePayout(String guildID) {
+        return 10;
+    }
+
+    public static int getGuildMaxCrimePayout(String guildID) {
+        return 50;
+    }
+
+    public static boolean isOnCrimeCooldown(String guildID, String userID) {
+        return false;
+    }
+
+    public static int getGuildMinCrimeLoss(String guildID) {
+        return 10;
+    }
+
+    public static int subMoneyToBal(String guildID, String userID, int amount) {
+        setBalance(guildID, userID, getBalance(guildID, userID) - amount);
+        return getBalance(guildID, userID);
     }
 }
